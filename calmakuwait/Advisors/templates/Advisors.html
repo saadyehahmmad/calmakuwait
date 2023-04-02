@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load static %}
+
+	<title>KSJUST  |  Advisors</title>
+			<nav>
+						<div class="col-md-9 text-left menu-1">
+							<ul>
+								<li><a href="/" style="font-size: 15px;">الرئيسية</a></li>
+								<li class="has-dropdown">
+									<a href="/Categories/" style="font-size: 15px;">اللجان</a>
+									<ul class="dropdown">
+                                        {% for category in categories %}
+										<li><a href="/Categories/{{category.slug}}/"><br style="font-size: 12px; float:right;">{{category}}
+										</pr></a></li>
+										{% endfor %}
+									</ul> 
+
+								</li>
+								<li><a href="/Events/" style="font-size: 15px;">الفعاليات</a></li>
+								<li><a href="/About/" style="font-size: 15px;">من نحن</a></li>
+								<li class="active"><a href="/Advisors/" style="font-size: 15px;">ممثلين الكليات</a></li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<aside id="colorlib-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url({{one_cover.cover.url}});">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
+				   				<div class="slider-text-inner text-center"style="padding: 7em;">
+				   					<h1>الممثلين</h1>
+				   					<h2><span><a href="../">الرئيسية</a> | الممثلين</span></h2>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+		
+
+
+
+                <div class="colorlib-trainers">
+                    <div class="container">
+                        <div class="row">
+                            
+                            <div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
+                                <h2>ممثلين الأقسام</h2>
+                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            {% for advisor in Advisors reversed%}
+                            <div class="col-md-3 col-sm-3 animate-box" style="float:right; min-width:275px;">
+                                <div class="trainers-entry">
+                                    <a href="/Advisors/{{advisor.slug}}/" style="color:white;" >
+                                    <div class="trainer-img" style="background-image: url({{advisor.cover.url}}); border: 2px solid black;"></div>
+                                    <div class="desc"  style="background-color: black;">
+                                        <h1 style="text-align: center;">{{advisor.title}}</a></h1>
+                                        <span>{{advisor.brief}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+		
+
+				</div>
+            </div>
+			</div>	
+		</div>
+	
+
+{% endblock body %}

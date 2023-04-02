@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load static %}
+
+	<title>KSJUST  |  {{category.title}}</title>
+
+						<div class="col-md-9 text-left menu-1">
+							<ul>
+								<li><a href="/" style="font-size: 15px;">الرئيسية</a></li>
+								<li class="has-dropdown active" >
+									<a href="/Categories/" style="font-size: 15px;">اللجان</a>
+								      <ul class="dropdown">
+										{% for class in classes %}
+										<li><a href="/Class/{{class.slug}}/" ><br style="font-size: 12px; float:right;">{{class}}
+										</pr></a></li>
+										{% endfor %}
+									</ul>
+								</li>
+								<li><a href="/Events/" style="font-size: 15px;">الفعاليات</a></li>
+								<li><a href="/About/" style="font-size: 15px;">من نحن</a></li>
+								<li><a href="/Advisors/" style="font-size: 15px;">ممثلين الكليات</a></li>
+
+								<!--<li class="btn-cta"><a href="#"><span>Free Trial</span></a></li>-->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+
+
+		<aside id="colorlib-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url({{category.cover.url}});">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
+				   				<div class="slider-text-inner text-center"style="padding: 7em;">
+				   					<h1>{{category.title}}</h1>
+				   					<h2><span><a href="/">الرئيسية</a> | <a href="/Categories/">اللجان</a> | {{category.title}}</span></h2>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+		
+		<div class="colorlib-classes">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row row-pb-lg">
+							<div class="col-md-12">
+								<div class="classes class-single">
+									{% comment %} <div class="classes-img" style="background-image: url({{category.cover.url}});">
+										<span class="price text-center"><small>$450</small></span>
+									</div> {% endcomment %}
+									<div class="desc desc2" style="direction: ltr; margin-top:-70px">	
+
+
+										{{ category.body|safe }}
+										
+
+									</div>
+									{% if classes %}
+										<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
+											<h2>الأقـسـام</h2>
+										</div>
+										<div class="row">
+											{% for class in classes %}
+												<div class="col-md-4 animate-box" style="float: right; min-width:275px;">
+													<div class="classes">
+													<a href="/Class/{{class.slug}}/">
+														<div class="classes-img" style="background-image: url({{class.cover.url}})";>
+														</div></a>
+														<div class="desc">
+															<h3><a href="/Class/{{class.slug}}/">{{class.title}}</a></h3>
+															<p style="font-size: 15px;">{{class.brief}}</p>
+															<p><a href="/Class/{{class.slug}}/" class="btn-learn"><i class="icon-arrow-right3"></i> معرفة المزيد </a></p>
+														</div>
+													</div>	
+												</div>
+											{% endfor %}
+											</div>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					
+						
+
+
+					</div>
+				</div>
+			</div>	
+		</div>
+
+{% endblock body %}

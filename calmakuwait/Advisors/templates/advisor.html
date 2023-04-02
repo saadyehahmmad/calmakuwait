@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+	<title>KSJUST  |  advisor</title>
+
+						<div class="col-md-9 text-left menu-1">
+							<ul>
+								<li><a href="/" style="font-size: 15px;">الرئيسية</a></li>
+								<li class="has-dropdown"><a href="/Categories/" style="font-size: 15px;">اللجان</a></li>
+								<li><a href="/Events/" style="font-size: 15px;">الفعاليات</a></li>
+								<li><a href="/About/" style="font-size: 15px;">من نحن</a></li>
+								<li class="active"><a href="/Advisors/" style="font-size: 15px;">ممثلين الكليات</a></li>
+
+								<!--<li trainers-entry class="btn-cta"><a href="#"><span>Free Trial</span></a></li>-->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+
+
+		<aside id="colorlib-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url({{advisor.cover.url}});">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
+				   				<div class="slider-text-inner text-center"style="padding: 7em;">
+				   					<h1>{{advisor.title}}</h1>
+				   					<h2><span><a href="/">الرئيسية</a> | <a href="/Advisors/">ممثلين الكليات</a> | {{advisor.title}}</span></h2>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+		
+		<div class="colorlib-classes">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row row-pb-lg">
+							<div class="col-md-12">
+								<div class="classes class-single">
+									{% comment %} <div class="classes-img" style="background-image: url({{advisor.cover.url}});">
+										<span class="price text-center"><small>$450</small></span>
+									</div> {% endcomment %}
+                                    <div class="desc desc2" style="direction: ltr; margin-top:-70px">	
+
+
+										{{ advisor.body|safe }}
+										
+
+									</div>
+								</div>
+							</div>
+						</div>
+					
+						
+
+
+					</div>
+				</div>
+			</div>	
+		</div>
+
+{% endblock body %}
